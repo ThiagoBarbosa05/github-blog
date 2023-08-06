@@ -12,6 +12,7 @@ export const ProfileContainer = styled.section`
 
   img {
     border-radius: 8px;
+    max-width: 9.25rem;
   }
 
   @media (max-width: 580px) {

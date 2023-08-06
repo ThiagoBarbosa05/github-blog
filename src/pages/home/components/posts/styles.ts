@@ -25,6 +25,7 @@ export const PostCard = styled(Link)`
     justify-content: space-between;
     gap: 0.875rem;
     line-height: 1.6;
+    margin-bottom: 1.25rem;
 
     h4 {
       color: ${(props) => props.theme['base-title']};
@@ -35,9 +36,10 @@ export const PostCard = styled(Link)`
       max-width: 16rem;
     }
 
-    span {
+    time {
       color: ${(props) => props.theme['base-span']};
       font-size: 0.875rem;
+      white-space: pre;
     }
   }
 
@@ -50,5 +52,9 @@ export const PostCard = styled(Link)`
   &:hover {
     transition: border 0.5s;
     border: 2px solid ${(props) => props.theme['base-label']};
+  }
+
+  section {
+    color: ${(props) => props.theme['base-text']};
   }
 `

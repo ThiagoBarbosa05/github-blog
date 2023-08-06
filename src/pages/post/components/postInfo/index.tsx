@@ -6,7 +6,21 @@ import calendarIcon from '../../../../assets/calendar.svg'
 import commentsIcon from '../../../../assets/comments.svg'
 import { PostInfoContainer } from './styles'
 
-export function PostInfo() {
+interface IPostInfoProps {
+  title: string
+  url: string
+  user: { login: string }
+  createdAt: string
+  comments: number
+}
+
+export function PostInfo({
+  title,
+  url,
+  user,
+  createdAt,
+  comments,
+}: IPostInfoProps) {
   return (
     <PostInfoContainer>
       <header>
@@ -14,22 +28,25 @@ export function PostInfo() {
           <CaretLeft size={12} weight="bold" />
           voltar
         </Link>
-        <a href="#">
+        <a href={url}>
           ver no github <ArrowSquareOut size={12} weight="bold" />
         </a>
       </header>
-      <h4>JavaScript data types and data structures</h4>
+      <h4>{title}</h4>
       <footer>
         <div>
           <img src={githubLogo} alt="" />
-          cameronwll
+          {user?.login}
         </div>
         <div>
           <img src={calendarIcon} alt="" />
-          Há 1 dia
+          <time title={createdAt}>{createdAt}</time>
         </div>
         <div>
-          <img src={commentsIcon} alt="" />5 comentários
+          <img src={commentsIcon} alt="" />
+          {comments === 1
+            ? `${comments} comentário`
+            : `${comments} comentários`}
         </div>
       </footer>
     </PostInfoContainer>

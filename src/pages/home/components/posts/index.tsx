@@ -1,80 +1,30 @@
+import { useContext } from 'react'
+
 import { PostCard, PostsContainer } from './styles'
+import { PostsContext } from '../../../../contexts/PostsContext'
+import { formatterDate } from '../../../../lib/formatterDate'
 
 export function Posts() {
+  const { posts } = useContext(PostsContext)
+
   return (
     <PostsContainer>
-      <PostCard to="/post">
-        <header>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </header>
+      {posts.map((post) => {
+        const dateFromNow = formatterDate(new Date(post.created_at))
 
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </PostCard>
-      <PostCard to="/post">
-        <header>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </header>
+        return (
+          <PostCard key={post.number} to={`/post/${post.number}`}>
+            <header>
+              <h4>{post.title}</h4>
+              <time title={dateFromNow} dateTime={post.created_at}>
+                {dateFromNow}
+              </time>
+            </header>
 
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </PostCard>
-      <PostCard to="/post">
-        <header>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </header>
-
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </PostCard>
-      <PostCard to="/post">
-        <header>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </header>
-
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </PostCard>
-      <PostCard to="/post">
-        <header>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </header>
-
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </PostCard>
-      <PostCard to="/post">
-        <header>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </header>
-
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...
-        </p>
-      </PostCard>
+            <section>{post.body.substring(0, 200)}...</section>
+          </PostCard>
+        )
+      })}
     </PostsContainer>
   )
 }

@@ -34,6 +34,12 @@ export const PostInfoContainer = styled.section`
     align-items: center;
     gap: 2rem;
 
+    @media (max-width: 530px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
     div {
       display: flex;
       align-items: center;
@@ -42,6 +48,10 @@ export const PostInfoContainer = styled.section`
       img {
         width: 1.124rem;
       }
+    }
+
+    time {
+      white-space: pre;
     }
   }
 `
