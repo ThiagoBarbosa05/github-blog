@@ -19,4 +19,11 @@ The following tools were used to build the project:
 - [Phosphor-react](https://phosphoricons.com/)
 - [Eslint](https://eslint.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Router Dom](https://reactrouter.com/en/main)
+- [React Markdown](https://www.npmjs.com/package/react-markdown)
+- [Zod](https://zod.dev/)
+- [Remark-gfm](https://github.com/remarkjs/remark-gfm)
+- [Styled Components](https://styled-components.com/)
 
